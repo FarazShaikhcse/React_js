@@ -36,10 +36,10 @@ class Contact extends Component {
     
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
-        // event.preventDefault();
+
     }
     
   render() {
@@ -174,6 +174,18 @@ class Contact extends Component {
                                             validEmail: 'Invalid Email Address'
                                         }}
                                      />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="feedback" md={2}>Your feedback</Label>
+                                <Col md={10}>
+                                    <Control.textarea model=".message" id="message" name="message" rows="12" className="form-control" />
+                                </Col>
+                            </Row>
+
+                            <Row className="form-group">
+                                <Col md={{ size: 10, offset: 2 }}>
+                                    <Button type="submit" color="primary">Send feedback</Button>
                                 </Col>
                             </Row>
                         </Form>
